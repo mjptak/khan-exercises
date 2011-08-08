@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+  <html data-require="math math-format angles graphie">
+      <head>
+          <title>Ptak Example Exercise</title>
+          <script src="../khan-exercise.js"></script>
+	  <script>
+	  //It is probably a good idea to stack the functions in the front
+	  //To pass a number of values out of a function either use an array
+	  //or have the variables defined before the function is called.
+	  function ptakPowers(b){
+		var a = Math.pow(b,0.5);
+		var c = b * b;
+		var d = b * b * b;
+		var e = b * b * b *b;
+		var f=[]
+		f=[a,b,c,d,e]
+		return f;
+			}
+       </script>
+	  
+	  </head>
+      <body>
+          <div class="exercise">
+              <div class="vars">
+                  <var id="AA">randRange(0,10)</VAR>
+				  <var id="BB">randRange(10,20)</VAR>
+				  <var id="AB">AA * BB</VAR>
+				  <var id="AB2">ptakPowers(AB)[0]</VAR>
+				  <var id="ALIST">[AA,BB,AB]</VAR>
+				  <var id="NEG1">-1</VAR>
+				  <var id="ANGTXT">KhanUtil.commonAngles2[1].rad</VAR>
+				  <!-- Your variables in here... -->
+              </div>
+
+              <div class="problems">
+                  <div id="problem-type-or-description">
+                      <p class="problem"><code><var>ANGTXT</var></code>  <var>BB</var>  <var>AB</var> <var>AB2</var> <var>ALIST[0]</var>aaa<!-- An overview of the problem including all needed info. --></p>
+                      <p class="question"><code>\sqrt{<var>AB</var>}</code>=<code><var>KhanUtil.roundTo(2,AB2)</var></code>aaa<!-- The question to ask the student. --></p>
+                      <div id="graph" class="graphie" style="float: right">
+					graphInit({
+						range: [2,2],
+						scale: [100,100],
+						tickStep: 0.5,
+						labelStep: 1.0,
+						unityLabels: false,
+						labelFormat: function( s ) { return "\\small{" + s + "}"; },
+						axisArrows: "<->"
+					});
+					circle([0,0],1);  
+					 </div> 
+					  <p class="solution"><code><var>KhanUtil.roundTo(2,AB2)</var></code><!-- The correct answer expected of the student. --></p>
+                  </div>
+              </div>
+
+              <div class="hints">
+				 <p>Label the most logical points in a <em><b>UNIT</b></em> circle.<br/>Remember the <em><b>"UNIT"</b></em> refers to the radius</p>
+				 <div class="graphie" data-update="graph">
+				label( [ 1.0, 0.0 ], "(" + "1"	+ ", " + "0" + ")","above right");
+				label( [ 0.0, 1.0], "(" + "0"	+ ", " + "1" + ")","above right");
+				label( [ -1.0, 0.0], "(" + "<var>NEG1</var>" 	+ ", " + "0" + ")","above left");
+				label( [ 0.0, <var>NEG1</var>], "(" + "0"	+ ", " + "<var>NEG1</var>" + ")","below left");
+				</div>
+				 <p>Now divide the first quadrant up by drawing these lines which give hints for the halves</p>
+				 <div class="graphie" data-update="graph">
+				line( [0.5, 0.0], [0.5, 1.0], { stroke: "#6495ed", arrows: false } );
+				line( [0, 0.5], [1.0, 0.5], { stroke: "#6495ed", arrows: false } );
+			
+				</div>
+				 <p>and provide guides for 30,45 and 60 degree radii.</p>
+				 
+				 
+				 <p><code>\sqrt{<var>AB</var>}</code>=<code><var>KhanUtil.roundTo(2,AB2)</var></code></p>
+		
+				 <div class="graphie" data-update="graph">
+				line( [0.0, 0.0], [0.5,0.866], { stroke: "#6495ed", arrows: false } );
+				line( [0.0, 0.0], [0.866,0.50], { stroke: "#6495ed", arrows: false } );
+				line( [0.0, 0.0], [0.7071,0.7071], { stroke: "#6495ed", arrows: false } );
+				</div>
+				 <p>Which define key coordinates on the unit circle</p>
+				 <div class="graphie" data-update="graph">
+				
+				label( [ 0.5, 0.9], "(" + "\\frac{\\sqrt{1}}{2}"	+ ", " + "\\frac{\\sqrt{3}}{2}" + ")","above right");
+				label( [ 0.7, 0.6], "(" + "\\frac{\\sqrt{2}}{2}"	+ ", " + "\\frac{\\sqrt{2}}{2}" + ")","above right");
+				label( [ 0.9, 0.3], "(" + "\\frac{\\sqrt{3}}{2}"	+ ", " + "\\frac{\\sqrt{1}}{2}" + ")","above right");
+				</div>
+				<p>Notice the pattern for the x values<br/>With twos in the denominator<br/>and "root 1", "root 2", "root 3" in the numerator</p> 
+				<p>The y values are similar but read bottom to top</p>
+				 </div>
+          </div>
+      </body>
+  </html>

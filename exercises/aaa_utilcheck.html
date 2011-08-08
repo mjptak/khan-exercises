@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+  <html data-require="math graphie angles">
+      <head>
+          <title>Mark Ptak Example Exercise</title>
+		  <script src="../khan-exercise.js"></script>
+		<script>
+			var mark = ["sqrt2","sqrt3","sqrt5","(sqrt(5))/2)","phi","1","2"];
+<!--			var mark = [0,7,14,21,28,35];
+	  </script>
+	  </head>
+      <body>
+          <div class="exercise">
+              <div class="vars">
+				<var id="NUM">randRange(1,8)</VAR>
+				<var id="VAR1">mark[NUM-1]</VAR>
+				<var id="VAR2">2</VAR>
+					<!-- Your variables in here... -->
+              </div>
+
+              <div class="problems">
+                  <div id="one">
+					  
+					  <p class="problem">Classic Golden Section and Unit Circle Info.<!-- An overview of the problem. --></p>
+                      <p class="question">Identify the length <var>VAR1</var> on the construction.<!-- The question to ask the student. --></p>
+                      <div id="graph" class="graphie" style="float: right">
+						graphInit({
+						range: [3,3],
+						scale: [50,50],
+						tickStep: 2.0,
+						labelStep: 2.0,
+						unityLabels: false,
+						labelFormat: function( s ) { return "\\small{" + s + "}"; },
+						axisArrows: "<->"
+						});
+						circle([0,0],1);
+						line([1,0],[1,1.732]);
+						line([0,0],[1,1.732]);
+						line([0,1],[1,0]);
+						line([0,1],[1,1]);
+						line([0,-1],[2.236,-1]);
+						line([1,1],[2.236,-1]);
+						line([1.612,0],[1.612,-1]);
+						circle([0.5,-1],0.05);
+						circle([0.5,-1],1.118);
+					 </div> 
+					  
+					  
+					  
+					  
+					  <p class="solution">42<!-- The correct answer expected of the student. --></p>
+					  
+				  
+            
+
+              <div class="hints">
+                  
+				  
+				<p class="hint1">One diagonal is 60 degrees</p>
+				<p class="hint2">One diagonal is 45 degrees</p> 
+				<p class="hint3">One diagonal is 58.28 degrees</p> 
+				 <!-- Any hints to show to the student. -->
+              </div>
+			  
+			  
+          </div>
+     </div>
+	 </div>
+	  </body>
+  </html>
