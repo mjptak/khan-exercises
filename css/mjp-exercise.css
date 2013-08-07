@@ -1,0 +1,29 @@
+@media screen  and (max-width:480px){
+
+#problemarea{
+  width: 150px;
+  margin: 0px;
+  padding: 0px;
+  }
+#problem-and-answer{
+  width: 300px;
+  margin: 0px;
+  padding: 0px;
+  }
+.infobox{
+  width: 100px;
+  margin: 0px 0px;
+  padding: 0px;
+  }
+  .exercises-body {
+  min-height: 200px;
+  margin: 0px 0px;
+  padding: 0px;
+}
+  body{
+  margin: 0px;
+  padding: 0px;
+}
+input[type=text] { width: 10px;
+}
+}

@@ -251,6 +251,11 @@ var Khan = (function() {
             link.rel = "stylesheet";
             link.href = urlBase + "local-only/katex/katex.css";
             document.getElementsByTagName("head")[0].appendChild(link);
+            
+            link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.href = urlBase + "css/mjp-exercise.css";
+            document.getElementsByTagName("head")[0].appendChild(link);
         })();
     }
 
