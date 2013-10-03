@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<title>Perseus render</title>
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/shared.css" />
+<link rel="stylesheet" type="text/css" href="/ke/css/khan-exercise.css" />
+<link rel="stylesheet" type="text/css" href="/lib/katex/katex.less" />
+
+<link rel="stylesheet/less" type="text/css" href="/stylesheets/exercise-content-package/perseus.less" />
+<script src="/lib/less.js"></script>
+
+</head>
+<body>
+
+<div id="problem-and-answer" class="framework-perseus" style="width: 797px;">
+    <div id="problemarea">
+        <div id="workarea"></div>
+        <div id="hintsarea"></div>
+    </div>
+    <div id="answer_area_wrap">
+        <div id="answer_area">
+            <form id="answerform">
+                <div id="anwsercontent">
+                    <div id="solutionarea"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+
+<div id="extras">
+    <button id="score">Score</button>
+    <span id="examples-show" style="display: none;">Acceptable formats</span>
+</div>
+
+<script src="/lib/es5-shim.js"></script>
+<script src="/lib/jquery.js"></script>
+<script src="/lib/underscore.js"></script>
+<script src="/lib/marked.js"></script>
+<script src="/lib/react.js"></script>
+<script src="/lib/JSXTransformer.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full&amp;delayStartupUntil=configured"></script>
+<script src="/lib/katex/katex.js"></script>
+<script src="/ke/local-only/kas.js"></script>
+
+<script>
+    var KhanUtil = {
+        debugLog: function() {}
+    };
+    var Khan = {
+        Util: KhanUtil,
+        error: function() {},
+        query: {debug: ""},
+        scratchpad: {
+            disable: function() {},
+            enable: function() {}
+        }
+    };
+</script>
+
+<script src="/ke/local-only/jed.js"></script>
+<script src="/ke/local-only/i18n.js"></script>
+<script src="/ke/local-only/jquery.qtip.js"></script>
+<script src="/ke/utils/answer-types.js"></script>
+<script src="/ke/utils/math.js"></script>
+
+<script src="/ke/utils/tmpl.js"></script>
+<script src="/ke/third_party/raphael.js"></script>
+<script src="/ke/utils/graphie.js"></script>
+<script src="/ke/third_party/jquery.mobile.vmouse.js"></script>
+<script src="/ke/utils/interactive.js"></script>
+<script src="/ke/exercises-stub.js"></script>
+<script src="/ke/utils/tex.js"></script>
+
+<!-- pre built (use for testing IE8) -->
+<!-- <script src="/src/core.js"></script>
+<script src="/src/util.js"></script>
+<script src="/src/widgets.js"></script>
+<script src="/build/src/widgets/input-number.js"></script>
+<script src="/build/src/widgets/interactive-graph.js"></script>
+<script src="/build/src/widgets/radio.js"></script>
+<script src="/build/src/widgets/dropdown.js"></script>
+<script src="/build/src/widgets/expression.js"></script>
+<script src="/build/src/renderer.js"></script>
+<script src="/build/src/hint-editor.js"></script>
+<script src="/build/src/item-renderer.js"></script> -->
+
+
+<!-- built in the browser -->
+<script src="/src/core.js"></script>
+<script src="/src/util.js"></script>
+
+<script src="/src/widgets.js"></script>
+<script src="/src/widgets/input-number.jsx" type="text/jsx"></script>
+<script src="/src/widgets/interactive-graph.jsx" type="text/jsx"></script>
+<script src="/src/widgets/protractor.jsx" type="text/jsx"></script>
+<script src="/src/widgets/radio.jsx" type="text/jsx"></script>
+<script src="/src/widgets/dropdown.jsx" type="text/jsx"></script>
+<script src="/src/widgets/table.jsx" type="text/jsx"></script>
+<script src="/src/widgets/expression.jsx" type="text/jsx"></script>
+<script src="/src/renderer.jsx" type="text/jsx"></script>
+<script src="/src/hint-editor.jsx" type="text/jsx"></script>
+<script src="/src/item-renderer.jsx" type="text/jsx"></script>
+
+
+
+<script>
+(function() {
+
+$('#score').on('click', function() {
+    console.log(zk.scoreInput());
+});
+
+var seedContent =
+
+{
+    "question": {
+        "content": "What is the name of the word for 1?",
+        "widgets": {}
+    },
+    "answerArea": {
+        "type": "radio",
+        "options": {
+            "choices": [
+                {
+                    "content": "one",
+                    "correct": false
+                },
+                {
+                    "content": "two",
+                    "correct": true
+                },
+                {
+                    "content": "three",
+                    "correct": false
+                },
+                {
+                    "content": "four",
+                    "correct": false
+                }
+            ],
+            "randomize": false,
+            "multipleSelect": false
+        },
+        "calculator": false
+    },
+    "hints": []
+};
+
+
+
+
+Perseus.init({}).then(function() {
+    var itemMountNode = document.createElement("div");
+    zk = React.renderComponent(Perseus.ItemRenderer({
+        item: seedContent,
+        problemNum: Math.floor(Math.random() * 50) + 1,
+        initialHintsVisible: seedContent.hints.length
+    }, null), itemMountNode);
+    zk.focus();
+}).then(function() {
+    console.log("all done.", +new Date/1000);
+}, function(err) {
+    console.error(err);
+});
+
+})();
+</script>
+
+</body>
+</html>
